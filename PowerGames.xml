@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<consoles>
+    <section name="Playstation 5">
+        <entry>
+            <item>Spider-Man: Miles Morales(No DLC)</item>
+            <price>42.00</price>
+        </entry>
+        <entry>
+            <item>Call od Duty: Black Ops Cold War(No DLC)</item>
+            <price>45.00</price>
+        </entry>
+        <entry>
+            <item>FIFA 22(No DLC)</item>
+            <price>58.00</price>
+        </entry>
+        <entry>
+            <item>Demon's Souls(No DLC)</item>
+            <price>48.00</price>
+        </entry>
+        <entry DLC="true">
+            <item>Assassin's Creed Valhalla DLC</item>
+            <price>38.0</price>
+        </entry>        
+    </section>
+    <section name="Xbox Series">
+        <entry>
+            <item>Battlefield 2042 (NO DLC)</item>
+            <price>60.00</price>
+        </entry>
+        <entry>
+            <item>Call of Duty: Vanguard (NO DLC)</item>
+            <price>58.00</price>
+        </entry>
+        <entry>
+            <item>MotoGP 21 (NO DLC)</item>
+            <price>28.00</price>
+        </entry>
+        <entry>
+            <item>NHL 22(NO DLC)</item>
+            <price>55.00</price>
+        </entry>
+        <entry DLC="true">
+            <item>NBA 2K21 (DLC)</item>
+            <price>24.0</price>
+        </entry>        
+    </section>
+    <section name="Wii U">
+        <entry>
+            <item>Mario Kart 8 (NO DLC)</item>
+            <price>12.00</price>
+        </entry>
+        <entry>
+            <item>Super Smash Bros. (NO DLC)</item>
+            <price>14.00</price>
+        </entry>
+        <entry>
+            <item>Super Mario 3D World</item>
+            <price>22.00</price>
+        </entry>
+        <entry>
+            <item>Splatoon</item>
+            <price>8.00</price>
+        </entry>
+        <entry DLC="true">
+            <item>Super Mario Maker (DLC)</item>
+            <price>20.0</price>
+        </entry>        
+    </section>
+    <section name="Nintendo Switch">
+        <entry>
+            <item>Mario Kart 8 Deluxe (NO DLC)</item>
+            <price>52.00</price>
+        </entry>
+        <entry>
+            <item>Super Mario Odyssey</item>
+            <price>50.00</price>
+        </entry>
+        <entry>
+            <item>Legend of Zelda: Breath of the Wild (NO DLC)</item>
+            <price>55.00</price>
+        </entry>
+        <entry>
+            <item>Minecraft</item>
+            <price>40.00</price>
+        </entry>
+        <entry DLC="true">
+            <item>Super Smash Bros. Ultimate (DLC)</item>
+            <price>38.00</price>
+        </entry>        
+    </section>
+    <section name="PC">
+        <entry>
+            <item>Farming Simulator 22(NO DLC)</item>
+            <price>39.99</price>
+        </entry>
+        <entry>
+            <item>Football Manager 2022 (NO DLC)</item>
+            <price>40.00</price>
+        </entry>
+        <entry>
+            <item>Humankind</item>
+            <price>45.00</price>
+        </entry>
+        <entry>
+            <item>Wolfenstein</item>
+            <price>10.00</price>
+        </entry>
+        <entry DLC="true">
+            <item>Minecraft Dungeons DLC</item>
+            <price>20.00</price>
+        </entry>        
+    </section>
+</menu>
