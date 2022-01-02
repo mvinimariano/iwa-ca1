@@ -26,17 +26,17 @@ function calculateBill(idMenuTable) {
     // return the price as a decimal number with 2 decimal places
     return Math.round(fBillTotal * 100.0) / 100.0;
 };
-// This function either turns on or off the row highlighting for DLC
-//games (depending on the value of bShowVeg)
-function highlightDLC(idTable, bShowVeg) {
-    // if bShowVeg is true, then we're highlighting DLC
-    //	games, otherwise we're unhighlighting them.
+// This function either turns on or off the row highlighting for vegetarian
+// items (depending on the value of bShowVeg)
+function highlightDLC(idTable, bShowDLC) {
+    // if bShowVeg is true, then we're highlighting vegetarian
+    //	meals, otherwise we're unhighlighting them.
     var i = 0;
     var oTable = document.getElementById(idTable);
     var oTBODY = oTable.getElementsByTagName('TBODY')[0];
     var aTRs = oTBODY.getElementsByTagName('TR');
     // walk through each of the table rows and see if it has a 
-    // "DLC" attribute on it.
+    // "vegetarian" attribute on it.
     for (i = 0; i < aTRs.length; i++) {
         if (aTRs[i].getAttribute('DLC') && aTRs[i].getAttribute('DLC') == "true") {
             if (bShowDLC) {
@@ -66,4 +66,4 @@ window.addEventListener("load", function () {
     document.querySelector("#showDLC").addEventListener("click", function () {
         highlightDLC('menuTable', this.checked);
     });
-});
+}); 

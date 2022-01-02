@@ -19,7 +19,7 @@
         </entry>
         <entry DLC="true">
             <item>Assassin's Creed Valhalla DLC</item>
-            <price>38.0</price>
+            <price>38.00</price>
         </entry>        
     </section>
     <section name="Xbox Series">
@@ -41,7 +41,7 @@
         </entry>
         <entry DLC="true">
             <item>NBA 2K21 (DLC)</item>
-            <price>24.0</price>
+            <price>24.00</price>
         </entry>        
     </section>
     <section name="Wii U">
@@ -63,7 +63,7 @@
         </entry>
         <entry DLC="true">
             <item>Super Mario Maker (DLC)</item>
-            <price>20.0</price>
+            <price>20.00</price>
         </entry>        
     </section>
     <section name="Nintendo Switch">

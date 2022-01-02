@@ -42,20 +42,20 @@
 					return Math.round(fBillTotal * 100.0) / 100.0;
 				};
 
-				// This function either turns on or off the row highlighting for DLC games
-				// items (depending on the value of bShowDLC)
-				function highlightDLC(idTable, bShowDLC) {
-					// if bShowDLC is true, then we're highlighting DLC
+				// This function either turns on or off the row highlighting for vegetarian
+				// items (depending on the value of bShowVeg)
+				function highlightVegetarian(idTable, bShowVeg) {
+					// if bShowVeg is true, then we're highlighting vegetarian
 					//	meals, otherwise we're unhighlighting them.
 					var i = 0;
 					var oTable = document.getElementById(idTable);
 					var oTBODY = oTable.getElementsByTagName('TBODY')[0];
 					var aTRs = oTBODY.getElementsByTagName('TR');
 					// walk through each of the table rows and see if it has a 
-					// "DLC" attribute on it.
+					// "vegetarian" attribute on it.
 					for (i = 0; i < aTRs.length; i++) {
-						if (aTRs[i].getAttribute('DLC') && aTRs[i].getAttribute('DLC') == "true") {
-							if (bShowDLC) {
+						if (aTRs[i].getAttribute('vegetarian') && aTRs[i].getAttribute('vegetarian') == "true") {
+							if (bShowVeg) {
 								aTRs[i].style.backgroundColor = "lightGreen";
 							} else {
 								aTRs[i].style.backgroundColor = "";
@@ -80,14 +80,14 @@
 					document.querySelector("#calcBill").addEventListener("click", function() {
 						document.forms[0].txtBillAmt.value = calculateBill('menuTable');
 					});
-					document.querySelector("#showDLC").addEventListener("click", function() {
-						highlightDLC('menuTable', this.checked);
+					document.querySelector("#showVeg").addEventListener("click", function() {
+						highlightVegetarian('menuTable', this.checked);
 					});
 				}); 
 				</script></head>
    <body>
-      <h2><img src="data:image/gif;base64,R0lGODlhOgBkANUAAP///7TWer3bi5rO0NHmr+Xx0QGEibW6tymWhsrm57zY2ZHGfdzswYeQi0yorMLdkubn52a1uPH35t/w8Nfa2G22hL3aeVOqgsbeefDy8sfhnvn78w6Kj/H4+BiOh/b67h2RljCbn6vSe/j8/AB/irjYgfv9+LjYev7+/bXXffz++vv9/bTWe/b4+Oz13ZzLfPz8/KKopT2ghP///rbXerXWejmfo4nGyHq/wbDUepifm/7//v7//7XWe4TBfv3+/CH5BAAAAAAALAAAAAA6AGQAAAb/QIBwSCwCTAzGzshsOp9QYUFQ+kSv2KuJEAgQsuAwcaPpBlziNNb0MFfVcCeq7N7E70WGuVuy4/EfJXsBKVZ/d1yDAQWHcRuCihqNcAWKfH6TYYmWDJlhJgKWXQImnlkSLKJdnaZXLqqjpa1QlbBes7S2hGi4TbW2D7K9Rb+2X8NFr7pdjMhDEst8Es5Cj9EBwdQzdNHHznrXAazIytcszcMobeEl08jg4QKYuIHhXRo/yJvh3rgbofbEIStmDh2ufdfaDWMTMIC8YR8A2tMwY5iLHg3H4YJnz+AshNEU9trBLVy2Xv8a9pslAVLHdw0fDgO5bGUrhgE9tmoZkNTA/4zOaNp6s3AdP2cuUoUrFLQLjRM0FD21YOHEKjArJnQg0mLCCCFZtxLp4PUBjRwvREQ1YwGtjwUiLNB4oELIhAQJJjiZwOHGEBQODEQQMiJEiBVDRtgIAcCFhQskZJyo0cWCDw8kDGi+EOCEiwk2NGu2kYDJBAM4hiQwEIKDXgADDAwYokC2EAIcEJDwYSGAZRIeKrxYAPkChgcg+uK9wQFEBiOnUwtxECIDh8EARoA4LCQECLE3DLxAgMBCDQsySCzAcKJqhQqPSSggUttvkehCVs8O/zr2/NqzAWBdBRj4sFtVCHhAw1q+USUDCEaAgB0R+AEQ2A0D4CCYEC2A4P8AAN59BYCGOLxnQHkWJLhgFyeI8MIJDyI2RAvXGbGaX6txoOOOz8GGmm0A8LWjjrthABmBFmAgQoInVECCfUKEFyAAEVSZnF4OuNbBlqtJ16EBIIgYgQEJbKnBCydaIAJmMlRwAWbw0aCbAzfcEJgDIoIIAgg2zDdBCFAKEYENYg0QQoAd2DChYxV48IKaF3BgQG4+WGUBAQMk19wNeYIlIwAr8MDECiiM+qkQGljFYlsiiNCeGZ3wsKWowxRQA4MBLEgDZWboNIwKEsHCSxwtHBAGR6L04A4cP0CgQwY9tkABBERkMG0+jelSgjBqZBBDAwcYS4EO4T4LwAExhBv/A7U/GCWKTWm0EAOHDVAwQrHzQpABBBSAe5stvorhbakQNBDDwenCcAC5CqQrBLKD9BHGEkZ4Sy+1AECgcQNDOAwAxHvAS4sGyxJG7gEw9FsuBS2c/K2xHwsrhh4lMFDXENZSkE/O0VIwbQstPKwKRTOb8UDAWJS0RwolZ4GsBgVwi4UEKbyrBkGjECBBqVds4O4ePqVRjiUPEFDABhQb8cMUyQ4rxgdVD/WABgwU4MLdBRAQrCIaifHD3g1ZfYfSgUcidRpCFY7NPJQoTjbjcNTjuBkaHA4HCoAHTgDXjSSeUN+HjN0Qya1YExPSh3guigAMQO4J1kZroJRDUFtuWQooligkQQEFSIAtNQDQ9ADwToh+D/FNzBEJ8r4oMjzzRpAUsevMG4868QiBDj0AKVG+PRMFzM7U93nscT3xO2wi8vYzMJDK8+Qb4cIDAvwePxEuMGD/LEEAADs=" alt="Javaco Tea Logo" width="58" height="100">Welcome to Power Games</h2>
-      <p>Select your entrees from the menu below. To calculate the amount of the bill, click the Calculate Bill button. Check the "Highlight DLC games" box to highlight DLC games.</p>
+      <h2><img src="data:image/gif;base64,R0lGODlhOgBkANUAAP///7TWer3bi5rO0NHmr+Xx0QGEibW6tymWhsrm57zY2ZHGfdzswYeQi0yorMLdkubn52a1uPH35t/w8Nfa2G22hL3aeVOqgsbeefDy8sfhnvn78w6Kj/H4+BiOh/b67h2RljCbn6vSe/j8/AB/irjYgfv9+LjYev7+/bXXffz++vv9/bTWe/b4+Oz13ZzLfPz8/KKopT2ghP///rbXerXWejmfo4nGyHq/wbDUepifm/7//v7//7XWe4TBfv3+/CH5BAAAAAAALAAAAAA6AGQAAAb/QIBwSCwCTAzGzshsOp9QYUFQ+kSv2KuJEAgQsuAwcaPpBlziNNb0MFfVcCeq7N7E70WGuVuy4/EfJXsBKVZ/d1yDAQWHcRuCihqNcAWKfH6TYYmWDJlhJgKWXQImnlkSLKJdnaZXLqqjpa1QlbBes7S2hGi4TbW2D7K9Rb+2X8NFr7pdjMhDEst8Es5Cj9EBwdQzdNHHznrXAazIytcszcMobeEl08jg4QKYuIHhXRo/yJvh3rgbofbEIStmDh2ufdfaDWMTMIC8YR8A2tMwY5iLHg3H4YJnz+AshNEU9trBLVy2Xv8a9pslAVLHdw0fDgO5bGUrhgE9tmoZkNTA/4zOaNp6s3AdP2cuUoUrFLQLjRM0FD21YOHEKjArJnQg0mLCCCFZtxLp4PUBjRwvREQ1YwGtjwUiLNB4oELIhAQJJjiZwOHGEBQODEQQMiJEiBVDRtgIAcCFhQskZJyo0cWCDw8kDGi+EOCEiwk2NGu2kYDJBAM4hiQwEIKDXgADDAwYokC2EAIcEJDwYSGAZRIeKrxYAPkChgcg+uK9wQFEBiOnUwtxECIDh8EARoA4LCQECLE3DLxAgMBCDQsySCzAcKJqhQqPSSggUttvkehCVs8O/zr2/NqzAWBdBRj4sFtVCHhAw1q+USUDCEaAgB0R+AEQ2A0D4CCYEC2A4P8AAN59BYCGOLxnQHkWJLhgFyeI8MIJDyI2RAvXGbGaX6txoOOOz8GGmm0A8LWjjrthABmBFmAgQoInVECCfUKEFyAAEVSZnF4OuNbBlqtJ16EBIIgYgQEJbKnBCydaIAJmMlRwAWbw0aCbAzfcEJgDIoIIAgg2zDdBCFAKEYENYg0QQoAd2DChYxV48IKaF3BgQG4+WGUBAQMk19wNeYIlIwAr8MDECiiM+qkQGljFYlsiiNCeGZ3wsKWowxRQA4MBLEgDZWboNIwKEsHCSxwtHBAGR6L04A4cP0CgQwY9tkABBERkMG0+jelSgjBqZBBDAwcYS4EO4T4LwAExhBv/A7U/GCWKTWm0EAOHDVAwQrHzQpABBBSAe5stvorhbakQNBDDwenCcAC5CqQrBLKD9BHGEkZ4Sy+1AECgcQNDOAwAxHvAS4sGyxJG7gEw9FsuBS2c/K2xHwsrhh4lMFDXENZSkE/O0VIwbQstPKwKRTOb8UDAWJS0RwolZ4GsBgVwi4UEKbyrBkGjECBBqVds4O4ePqVRjiUPEFDABhQb8cMUyQ4rxgdVD/WABgwU4MLdBRAQrCIaifHD3g1ZfYfSgUcidRpCFY7NPJQoTjbjcNTjuBkaHA4HCoAHTgDXjSSeUN+HjN0Qya1YExPSh3guigAMQO4J1kZroJRDUFtuWQooligkQQEFSIAtNQDQ9ADwToh+D/FNzBEJ8r4oMjzzRpAUsevMG4868QiBDj0AKVG+PRMFzM7U93nscT3xO2wi8vYzMJDK8+Qb4cIDAvwePxEuMGD/LEEAADs=" alt="PW Logo" width="100" height="100">Welcome to Power Games</h2>
+      <p>Select your entrees from the menu below. To calculate the amount of the bill, click the Calculate Bill button. Check the "Highlight Vegetarian Meals" box to highlight vegetarian dishes.</p>
       <table id="menuTable" border="1" class="indent">
          <thead>
             <tr>
@@ -95,157 +95,107 @@
             </tr>
             <tr>
                <th>Select</th>
-               <th>Item</th>
+               <th>Games</th>
                <th>Price</th>
             </tr>
          </thead>
          <tbody>
             <tr>
-               <td colspan="3">Playstation 5</td>
+               <td colspan="3">Drinks</td>
             </tr>
-            <tr DLC="false">
+            <tr vegetarian="false">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Spider-Man: Miles Morales(No DLC)</td>
-               <td align="right">42.00</td>
+               <td>Coke</td>
+               <td align="right">2.50</td>
             </tr>
-            <tr DLC="false">
+            <tr vegetarian="false">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Call of Duty: Black Ops Cold War(No DLC)</td>
-               <td align="right">45.00</td>
+               <td>Vodka</td>
+               <td align="right">15</td>
             </tr>
-            <tr DLC="false">
-                <td align="center"><input name="item0" type="checkbox"></td>
-                <td>FIFA 22(No DLC)</td>
-                <td align="right">58.00</td>
-             </tr>
-             <tr DLC="false">
-                <td align="center"><input name="item0" type="checkbox"></td>
-                <td>Demon's Souls(No DLC)</td>
-                <td align="right">48.00</td>
-             </tr>
-            <tr DLC="true">
+            <tr vegetarian="true">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Assassin's Creed Valhalla DLC</td>
-               <td align="right">38.00</td>
+               <td>Kombucha</td>
+               <td align="right">2.0</td>
             </tr>
             <tr>
-               <td colspan="3">Xbox Series</td>
+               <td colspan="3">Side Dishes</td>
             </tr>
-            <tr DLC="false">
+            <tr vegetarian="false">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Battlefield 2042 (NO DLC)</td>
-               <td align="right">60.00</td>
+               <td>Potato Salad</td>
+               <td align="right">4.95</td>
             </tr>
-            <tr DLC="false">
+            <tr vegetarian="false">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Call of Duty: Vanguard (NO DLC)</td>
-               <td align="right">58.00</td>
+               <td>Chips</td>
+               <td align="right">4.50</td>
             </tr>
-            <tr DLC="false">
-                <td align="center"><input name="item0" type="checkbox"></td>
-                <td>MotoGP 21 (NO DLC)</td>
-                <td align="right">28.00</td>
-             </tr>
-             <tr DLC="false">
-                <td align="center"><input name="item0" type="checkbox"></td>
-                <td>NHL 22(NO DLC)</td>
-                <td align="right">55.00</td>
-             </tr>
-            <tr DLC="true">
+            <tr vegetarian="true">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>NBA 2K21 (DLC)</td>
-               <td align="right">24.0</td>
+               <td>Rice</td>
+               <td align="right">4.0</td>
             </tr>
             <tr>
-               <td colspan="3">Wii U</td>
+               <td colspan="3">Breakfast</td>
             </tr>
-            <tr DLC="false">
+            <tr vegetarian="false">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Mario Kart 8 (NO DLC)</td>
-               <td align="right">12.00</td>
+               <td>Eggs Benedict</td>
+               <td align="right">12.99</td>
             </tr>
-            <tr DLC="false">
+            <tr vegetarian="false">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Super Smash Bros. (NO DLC)</td>
-               <td align="right">14.00</td>
+               <td>Poached Eggs</td>
+               <td align="right">8</td>
             </tr>
-            <tr DLC="false">
-                <td align="center"><input name="item0" type="checkbox"></td>
-                <td>Super Mario 3D World</td>
-                <td align="right">22.00</td>
-             </tr>
-             <tr DLC="false">
-                <td align="center"><input name="item0" type="checkbox"></td>
-                <td>Splatoon</td>
-                <td align="right">8.00</td>
-             </tr>
-            <tr DLC="true">
+            <tr vegetarian="true">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Super Mario Maker (DLC)t</td>
-               <td align="right">20.0</td>
+               <td>FrenchToast</td>
+               <td align="right">2.0</td>
             </tr>
             <tr>
-               <td colspan="3">Nintendo Switch</td>
+               <td colspan="3">Lunch</td>
             </tr>
-            <tr DLC="false">
+            <tr vegetarian="false">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Mario Kart 8 Deluxe (NO DLC)</td>
-               <td align="right">52.00</td>
+               <td>Grilled Chicken Sadnwich</td>
+               <td align="right">7.50</td>
             </tr>
-            <tr DLC="false">
+            <tr vegetarian="false">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Super Mario Odyssey</td>
-               <td align="right">50.00</td>
+               <td>Soup of the Day</td>
+               <td align="right">6</td>
             </tr>
-            <tr DLC="false">
-                <td align="center"><input name="item0" type="checkbox"></td>
-                <td>Legend of Zelda: Breath of the Wild (NO DLC</td>
-                <td align="right">55.00</td>
-             </tr>
-             <tr DLC="false">
-                <td align="center"><input name="item0" type="checkbox"></td>
-                <td>Minecraft</td>
-                <td align="right">40.00</td>
-             </tr>
-            <tr DLC="true">
+            <tr vegetarian="true">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Super Smash Bros. Ultimate (DLC)</td>
-               <td align="right">38.00</td>
+               <td>Falafel</td>
+               <td align="right">10</td>
             </tr>
             <tr>
-               <td colspan="3">PC</td>
+               <td colspan="3">Dinner</td>
             </tr>
-            <tr DLC="false">
+            <tr vegetarian="false">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Farming Simulator 22(NO DLC)</td>
-               <td align="right">39.99</td>
+               <td>Ribeye Steak</td>
+               <td align="right">19.99</td>
             </tr>
-            <tr DLC="false">
+            <tr vegetarian="false">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Football Manager 2022 (NO DLC)</td>
-               <td align="right">40.00</td>
+               <td>Sushi</td>
+               <td align="right">15</td>
             </tr>
-            <tr DLC="false">
-                <td align="center"><input name="item0" type="checkbox"></td>
-                <td>Humankind</td>
-                <td align="right">45.00</td>
-             </tr>
-             <tr DLC="false">
-                <td align="center"><input name="item0" type="checkbox"></td>
-                <td>Wolfenstein</td>
-                <td align="right">10.00</td>
-             </tr>
-            <tr DLC="true">
+            <tr vegetarian="true">
                <td align="center"><input name="item0" type="checkbox"></td>
-               <td>Minecraft Dungeons DLC</td>
-               <td align="right">20.00</td>
+               <td>Shahshuka</td>
+               <td align="right">15</td>
             </tr>
          </tbody>
       </table>
       <form class="indent">
          <p><input type="button" name="btnCalcBill" value="Calculate Bill" id="calcBill">
                 Total: €
-                <input type="text" name="txtBillAmt"><input type="checkbox" name="cbOpts" value="isDLC" id="showDLC"><label for="showDLC">Highlight DLC Games</label></p>
+                <input type="text" name="txtBillAmt"><input type="checkbox" name="cbOpts" value="isVeg" id="showVeg"><label for="showVeg">Highlight Vegetarian Meals</label></p>
       </form>
    </body>
 </html> 
