@@ -3,12 +3,10 @@
 <xsl:template match="/">
 <table id="menuTable" border="1" class="indent">
     <thead>
-        <tr>
-            <th colspan="3">Power Games Catalogue</th>
-        </tr>
+
         <tr>
             <th>Select</th>
-            <th>Games</th>
+            <th>Item</th>
             <th>Price</th>
         </tr>
     </thead>
@@ -20,7 +18,7 @@
                 </td>
             </tr>
             <xsl:for-each select="entry">
-                <tr>
+                <tr id="{position()}">
                     <xsl:attribute name="DLC">
                         <xsl:value-of select="boolean(@DLC)" />
                     </xsl:attribute>
