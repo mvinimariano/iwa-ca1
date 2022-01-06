@@ -33,14 +33,38 @@ function select_row()
     {
         $(".selected").removeClass("selected");
         $(this).addClass("selected");
-        var section = $(this).prevAll("tr").children("rd[colspan='3']").length - 1;
-        var entry = $(this).attr("id") - 1;
-        delete_row(section, entry);
+        var sec = $(this).prevAll("tr").children("td[colspan='3']").length - 1;
+        var ent = $(this).attr("id") - 1;
+        delete_row(sec, ent);
 
     })
 
 };
+function delete_row(sec, ent){
+    $("#delete").click(function()
+    {
+        $.ajax(
+            {
+                url: "/post/delete",
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: '{"sec": "' + sec + '", "ent": "' + ent + '"}',
+                cache: false,
+                success: setTimeout(draw_table, 1000)
+            }
+        )
+    })
+};
+
+function ChangeImg(){
+document.getElementById("BloodBowl").src ="img/BloodBowl2.jpg"; 
+document.getElementById("ShovelKnight").src ="img/ShovelKnight2.jpg"; 
+document.getElementById("SteelAssault").src ="img/SteelAssault2.jpg"; 
+document.getElementById("TotalWar").src ="img/TotalWar2.jpg"; 
+}
+
 
 $(document).ready(function(){
     draw_table();
-})
+});
