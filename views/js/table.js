@@ -1,4 +1,6 @@
-function draw_table(){
+//the code was based on what we had in class
+
+function draw_table(){//this function draw the table and append the html
     $("#results").empty();
     $.getHTMLuncached = function(url) {
         return $.ajax({
@@ -15,7 +17,7 @@ function draw_table(){
     $.getHTMLuncached("/get/html");
 }
 
-function append(){
+function append(){// this function use the post to get the specific section, item and price.
     $.ajax({
         type: "POST",
         url: '/post/json',
@@ -27,7 +29,7 @@ function append(){
     });
 };
 
-function select_row()
+function select_row()//this function select the menutable rows and make it highlighted in red using the .selected css
 {
     $("#menuTable tbody tr[id]").click(function ()
     {
@@ -40,7 +42,7 @@ function select_row()
     })
 
 };
-function delete_row(sec, ent){
+function delete_row(sec, ent){//this function get position the users clicked and make it empty, this way we delete the whole item(section,item and price)
     $("#delete").click(function()
     {
         $.ajax(
@@ -57,7 +59,7 @@ function delete_row(sec, ent){
     })
 };
 
-function ChangeImg(){
+function ChangeImg(){//this funcition change the image to another image when clicked.
 document.getElementById("BloodBowl").src ="img/BloodBowl2.jpg"; 
 document.getElementById("ShovelKnight").src ="img/ShovelKnight2.jpg"; 
 document.getElementById("SteelAssault").src ="img/SteelAssault2.jpg"; 
@@ -65,6 +67,6 @@ document.getElementById("TotalWar").src ="img/TotalWar2.jpg";
 }
 
 
-$(document).ready(function(){
+$(document).ready(function(){//check if the document is ready to draw the table avoiding errors
     draw_table();
 });

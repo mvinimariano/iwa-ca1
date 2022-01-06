@@ -1,12 +1,13 @@
-html {
+/*All code based on what we had in class*/
+html { /*Html position,default*/
     position: relative;
     min-height: 100%;
 }
 
-body {
+body {/*bottom margin to 60 pixels*/
     margin-bottom: 60px;
 }
-.footer {
+.footer {/* footer configuration*/
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -15,25 +16,28 @@ body {
     line-height: 60px; /* Vertically center the text there */
     background-color: #f5f5f5;}
 
-table, th, td {
+table, th, td {/*table border and text align*/
         border-collapse: collapse;
         border: 1px solid black;
         text-align: center;
     }
-table {
+table {/*table border*/
 
     border-collapse: collapse;
     width: 100%;
 }
-td, th {
-    border: 1px solid #ced4da;
+td {/*itens td*/
+    border: 2px solid #91b9b9;
     padding: 0.5rem;
     text-align: left;
 }
-th {
-    font-weight: bold;
+ th {/*table header*/
+    border: 2px solid #91b9b9;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: rgb(223, 217, 217);
 }
-.selected {
+.selected {/*selected configuration*/
     background-color: #dc3545;
     color: #FFF;
 } 

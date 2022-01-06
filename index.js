@@ -10,9 +10,9 @@ const   router = express(), //Instantiating Express
         server = http.createServer(router); //Instantiating the server
 
 router.use(express.static(path.resolve(__dirname,'views'))); //Serving static content from "views" folder
-router.use(express.json());
+router.use(express.json());//avoid to duplicate route
 
-function XMLtoJSON(filename, cb){
+function XMLtoJSON(filename, cb){// parsing the file from XML to JSON
     let filepath = path.normalize(path.join(__dirname, filename));
     fs.readFile(filepath, 'utf8', function(err, xmlStr){
         if (err) throw (err);
@@ -20,7 +20,7 @@ function XMLtoJSON(filename, cb){
     });
 };
 
-function JSONtoXML(filename, obj, cb) {
+function JSONtoXML(filename, obj, cb) {//get current filenames indirectory with specific extension
     let filepath = path.normalize(path.join(__dirname, filename));
     let builder = new xml2js.Builder();
     let xml = builder.buildObject(obj);
@@ -35,78 +35,74 @@ router.get('/get/html', function(req, res) {
     let xml = fs.readFileSync('PowerGames.xml', 'utf8'), //read in the XML file
         xsl = fs.readFileSync('PowerGames.xsl', 'utf8'); //read in the XSL file
 
-    // console.log(xml);
-    // console.log(xsl);
 
     let doc = xmlParse(xml), //Parse the XML file
         stylesheet = xmlParse(xsl); //Parse the XSL file
 
     let result = xsltProcess(doc, stylesheet); //Performing XSLT
 
-    // console.log(result);
-
     res.end(result.toString()); //Serve back the user
 
 });
 
-router.post('/post/json', function(req, res) {
+router.post('/post/json', function(req, res) {//get the POST
 
-    console.log(req.body);
+    console.log(req.body);//access data in a string
 
     function appendJSON(obj) {
 
-        console.log(JSON.stringify(obj, null, " "))
+        console.log(JSON.stringify(obj, null, " "))//convert for a JSON string
 
-        XMLtoJSON('PowerGames.xml', function (err, result){
-            if (err) throw (err);
+        XMLtoJSON('PowerGames.xml', function (err, result){//convert the xml file
+            if (err) throw (err);//throw error
 
-            result.menu.section[obj.sec_n].entry.push({'item': obj.item, 'price': obj.price});
+            result.menu.section[obj.sec_n].entry.push({'item': obj.item, 'price': obj.price});//pushing the data
 
-            console.log(JSON.stringify(result, null, " "));
+            console.log(JSON.stringify(result, null, " "));//convert for a JSON string
 
-            JSONtoXML('PowerGames.xml', result, function(err){
-                if (err) console.log(err);
+            JSONtoXML('PowerGames.xml', result, function(err){//current information to the xml file
+                if (err) console.log(err);//throw error
             });
 
         });
 
     };
 
-    appendJSON(req.body);
+    appendJSON(req.body);//add the JSON to req.body
 
-    res.redirect('back');
+    res.redirect('back');//redirect
 
 });
 
 router.post('/post/delete', function(req, res){
 
-    console.log(req.body);
+    console.log(req.body);//access data in a string
 
     function deleteJSON(obj){
 
-        console.log(obj)
+        console.log(obj)//access data in a string
 
-        XMLtoJSON('PowerGames.xml', function(err, result){
-            if (err) throw (err);
+        XMLtoJSON('PowerGames.xml', function(err, result){//convert the xml file
+            if (err) throw (err);//throw error
 
-            console.log(obj.sec);
+            console.log(obj.sec);//get the object section
             console.log(obj.ent);
             console.log(result);
             
-            delete result.menu.section[obj.sec].entry[obj.ent];
+            delete result.menu.section[obj.sec].entry[obj.ent]; //set the specified object to null
 
             JSONtoXML('PowerGames.xml', result, function(err){
-                if (err) console.log(err);
+                if (err) console.log(err);//throw error
             });
         });
     };
 
-    deleteJSON(req.body);
+    deleteJSON(req.body);//delete Json file
 
-    res.redirect('back');
+    res.redirect('back');//redirect
 
 });
-
+//configuration to open ports
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
     const addr = server.address();
     console.log('Server listening at', addr.address + ':' + addr.port)

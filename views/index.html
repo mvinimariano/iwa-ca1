@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<!-- This code is based on what we had in class-->
 <html lang="en">
     <head>
+        <!-- Some default configuration-->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="description" content="IWA CA1" />
+        <meta name="author" content="Marcos Rodrigues" />
+        <!-- title of the HTML (tab of the browser)-->
         <title>Power Games</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -17,9 +20,10 @@
         <script src="js/table.js"></script>
     </head>
     <body>
-        <!-- Responsive navbar-->
+        <!--navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">                
+            <div class="container"> 
+                <!-- Title and PW logo-->               
                 <a><img src="img/powergame.png" alt="PW Logo" width="50" height="50" href="#" /></a>
                 <a class="navbar-brand" href="#">Power Games</a>
 
@@ -35,42 +39,49 @@
 
 
         <!-- Page content-->
+
         <div class="container">
             <div class="row">
                 <div class="text-center mt-5">
+
+                    <!-- Title subtitle and logo -->
+
                     <h1>Welcome to Power Games!</h1>
                     <h2><img src="img/powergame.png" alt="PW Logo" width="100" height="100" /></h2></h2>
                     <p class="lead">A game shop with the latest releases, Pre Orders and DLCs</p>
                     <p>Select your games from the menu below</p>
                 </div>
-                 <div id="results" class="col-lg-8 order-2 mb-5"></div>
+                 <div id="results" class="col-lg-8 order-2 mb-5"></div><!-- making 8 columns-->
                 <div class="col-lg-2 order-1 mb-3">
                     <form>
                         <div class="form-group">
                             <select id="section" class="form-control" name="sec_n">
+                                <!-- Console sections-->
                                 <option value="0">Playstation 5</option>
                                 <option value="1">Xbox Series</option>
                                 <option value="2">Wii U</option>
                                 <option value="3">Nintendo Switch</option>
                                 <option value="4">PC</option>
                             </select>
+                            <!-- configuring the id for the user input, we use it to get the POST-->
                             <input id="item" class="form-control mt-3" type="text" name="Item" placeholder="Item"/>
                             <input id="price" class="form-control mt-3" type="text" name="price" placeholder="Price"/>
                         </div>
                     </form>
                     <div class="d-grid gap-2">
+                        <!-- Submit and Delete button with the on click function-->
                         <button id="append" class="btn btn-primary btn-block mt-3" onClick="append()">Submit</button>
                         <button id="delete" class="btn btn-danger btn-block">Delete</button>
                         <p class="text-muted text-center">To delete an entry, click the required row first</p>
                     </div>
                 </div>
         </div>
-
+        <!-- the second part that is the pre order games-->
     <div class="container2">
             <div class="row">
                 <div class="text-center mt-5">
                     <h1>Pre Orders</h1>
-
+                     <!-- Image of the games with the onclick function to change it-->   
                     <tr>
                         <img src="img/BloodBowl.jpg" id= "BloodBowl" alt="BloodBowl" width="200" height="200" onclick="ChangeImg()"/>
                         <td><img src="img/ShovelKnight.jpg" id= "ShovelKnight" alt="ShovelKnight" width="200" height="200"onclick="ChangeImg()" /></td>

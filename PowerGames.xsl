@@ -1,6 +1,9 @@
 <?xml version="1.0"?> 
+<!-- XML FILE-->
+<!--This code was based on what we had in class-->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:template match="/">
+<!--Menu Table titles-->
 <table id="menuTable" border="1" class="indent">
     <thead>
 
@@ -10,6 +13,7 @@
             <th>Price</th>
         </tr>
     </thead>
+    <!--Sections value and names with checkbox-->
     <tbody>
         <xsl:for-each select="//section">
             <tr>
