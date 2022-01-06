@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <menu>
   <section name="Playstation 5">
-    <entry>
-      <item>Spider-Man: Miles Morales(No DLC)</item>
-      <price>42.00</price>
-    </entry>
-    <entry>
-      <item>Call od Duty: Black Ops Cold War(No DLC)</item>
-      <price>45.00</price>
-    </entry>
-    <entry>
-      <item>FIFA 22(No DLC)</item>
-      <price>58.00</price>
-    </entry>
-    <entry>
-      <item>Demon's Souls(No DLC)</item>
-      <price>48.00</price>
-    </entry>
     <entry DLC="true">
       <item>Assassin's Creed Valhalla DLC</item>
       <price>38.00</price>
+    </entry>
+    <entry>
+      <item>Grand Theft Auto 5</item>
+      <price>35.00</price>
+    </entry>
+    <entry>
+      <item>Minecraft Dungeons DLC</item>
+      <price>23</price>
     </entry>
   </section>
   <section name="Xbox Series">
@@ -34,14 +26,6 @@
     <entry>
       <item>MotoGP 21 (NO DLC)</item>
       <price>28.00</price>
-    </entry>
-    <entry>
-      <item>NHL 22(NO DLC)</item>
-      <price>55.00</price>
-    </entry>
-    <entry DLC="true">
-      <item>NBA 2K21 (DLC)</item>
-      <price>24.00</price>
     </entry>
   </section>
   <section name="Wii U">

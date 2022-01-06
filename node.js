@@ -1,3 +1,5 @@
+//code based on what we had in class (Mikhail code)
+
 const   express = require('express'), //Allows to respond to HTTP requests, defines routing and renders the required content
         fs = require('fs'), //Working with the file system (read and write files)
         http = require('http'), //HTTP Server

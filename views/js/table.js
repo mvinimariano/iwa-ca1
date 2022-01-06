@@ -1,4 +1,5 @@
-//the code was based on what we had in class
+//the code was based on what we had in class(Mikhail code)
+//
 
 function draw_table(){//this function draw the table and append the html
     $("#results").empty();
