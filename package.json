@@ -1,5 +1,5 @@
 {
-  "name": "-iwa-ca1",
+  "name": "iwa-ca1",
   "version": "0.0.1",
   "description": "IWA CA Project",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mvinimariano/-iwa-ca1.git"
+    "url": "git+https://github.com/mvinimariano/iwa-ca1.git"
   },
   "author": "Marcos Rodrigues",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mvinimariano/-iwa-ca1/issues"
+    "url": "https://github.com/mvinimariano/iwa-ca1/issues"
   },
-  "homepage": "https://github.com/mvinimariano/-iwa-ca1#readme",
+  "homepage": "https://github.com/mvinimariano/iwa-ca1#readme",
   "dependencies": {
     "express": "^4.17.2",
     "fs": "^0.0.1-security",
