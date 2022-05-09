@@ -1,30 +1,22 @@
 const   http = require("http"),
         logger = require("morgan"),
         express = require("express"),
-        bodyParser = require("body-parser"),
         mongoose = require("mongoose");
 
         let app = express();
         let port = 8000;
 
 
-        app.use(bodyParser.json());
-        app.use(require('./routes'));
+        app.use(express.json());
         app.use(logger("tiny"));
+        app.use(require('./routes'));
+        
+        const dbURI = "mongodb://localhost/test";
 
-        mongoose.connect('mongodb://localhost/test');
+        mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then((result) => console.log('connected to db'))
+        .catch((err) => console.log(err));
 
-mongoose.connection.on('error', (err) => { 
-    console.log('Mongodb Error: ', err); 
-    process.exit();
-});
-mongoose.connection.on('connected', () => { 
-    console.log('MongoDB is successfully connected');
-});
-
-
-
-
-        app.listen(port, function(err){
-            console.log("Listening on port: " + port)
-        });
+app.listen(port, function(err){
+    console.log("Listening on port: " + port)
+}); 
