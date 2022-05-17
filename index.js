@@ -14,7 +14,8 @@ const   http = require("http"),
         app.use(logger("tiny"));
         app.use(require('./routes'));
 
-        mongoose.connect(process.env.dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+        // mongoose.connect(process.env.dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+        mongoose.connect("mongodb://localhost/test", { useNewUrlParser: true, useUnifiedTopology: true })
         .then((result) => console.log('connected to db'))
         .catch((err) => console.log(err));
 

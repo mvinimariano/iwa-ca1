@@ -2,11 +2,20 @@ module.exports.UPLOAD_PATH = 'uploads';
 
 const   express = require("express"),
 router = express.Router(),
+app = express(),
 imageCtrl = require('./image-controller'),
 userCtrl = require("./user-controller"),
 multer = require('multer'),
+path = require('path');
 upload = multer({ dest: module.exports.UPLOAD_PATH });
 
+router.use(express.static(__dirname + '/public/'));
+
+router.get('/',(req,res)=> {
+    res.sendFile('index.html',{
+        root:path.join(__dirname, './views')
+    })
+})
 
 router.post('/users', userCtrl.createUser);
 router.get('/users', userCtrl.getUsers);
